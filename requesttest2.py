@@ -21,11 +21,10 @@ def torrent_Link_finder(url_name, movie_name):
         soup = BeautifulSoup(html_page,"lxml")
         magnet_link = ''
         for link in soup.findAll('a', href=True, text=' 720p'):
-            #print(link.get('href'))
             magnet_link=link.get('href')
-            #print(magnet_link)
+            
 
-        torrentPath = r'C:\Users\Karthick\AppData\Roaming\uTorrent\uTorrent.exe'
+        torrentPath = r'C:\Users\AppData\Roaming\uTorrent\uTorrent.exe' #Add Path here
         subprocess.Popen("%s %s" % (torrentPath, magnet_link ))
         print("'" + movie_name + "' Found")
     
@@ -75,20 +74,4 @@ else:
     print("Retry again")
     print("Closing in 5 seconds")
     time.sleep(5)
-    #exit()
-
-#user_input_movie1()
-
-
-
-
-
-
-
-
-
-    
-
-#os.startfile(magnet_link)
-   
-    
+    exit()
